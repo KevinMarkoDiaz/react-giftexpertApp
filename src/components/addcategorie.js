@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import propTypes from 'prop-type'
+
 
 
 const AddCategorie = ({ setCategories }) => {
@@ -38,10 +38,4 @@ const AddCategorie = ({ setCategories }) => {
 export default AddCategorie;
 
 
-AddCategorie.propTypes = {
 
-    setCategories: propTypes.func.isRequired
-
-}
-
-}
