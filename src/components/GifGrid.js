@@ -1,32 +1,42 @@
 import React from 'react';
+import { useFetchGifs } from '../hooks/useFetcGifs';
+import { GifGridItem } from './GifGridItem';
+
+
+
 export const GifGrid = ({ category }) => {
 
-    const getGift = async () => {
-        const url = 'https://api.giphy.com/v1/gifs/search?q=superman&limit=10&api_key=cnI2ih8LB5b5gtm4g2ZLNXeS0O3j4YsZ';
-        const resp = await fetch(url);
-        const { data } = await resp.json();
 
-        const gifs = data.map(img => {
+    const { data: images, loading } = useFetchGifs(category);
+    /* 
+ 
+     useEffect(() => {
+ 
+         getGift(category).then(imgs => setimages(imgs))
+ 
+     }, [category]);
 
-            return {
-                id: img.id,
-                tittle: img.tittle,
-                url: img.images?.downsized_medium.url
-
-            }
-        });
-
-        console.log(gifs);
-
-    };
-
-
-    getGift();
-
+    getGift()
+*/
     return (
-        <div>
+        <>
             <h3>{category}</h3>
-        </div>
+
+            {loading && <h2>Cargando</h2>}
+
+            <div className="cardGrid">
+
+
+
+                {
+                    images.map(img =>
+                        <GifGridItem
+                            key={img.id}
+                            {...img} />)
+                }
+
+            </div>
+        </>
     )
 }
 

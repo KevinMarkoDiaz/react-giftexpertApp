@@ -4,7 +4,7 @@ import GifGrid from "./GifGrid";
 
 const GifExpertApp = () => {
 
-    const [categories, setCategories] = useState(['millos']);
+    const [categories, setCategories] = useState(['Colombia']);
     /*
         const handleAdd = () => {
             setCategories([...categories,]);
